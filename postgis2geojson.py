@@ -74,7 +74,7 @@ def getData():
     try:
         conn = psycopg2.connect("dbname=" + arguments.database + " user=" + arguments.user + " host=" + arguments.host + " port=" + arguments.port + " password="+ arguments.password)
     except:
-        print "Unable to connect to the database. Please check your options and try again."
+        print("Unable to connect to the database. Please check your options and try again.")
         return
 
     # Create a cursor for executing queries
@@ -104,7 +104,7 @@ def getData():
     try:
         cur.execute(query)
     except Exception as exc:
-        print "Unable to execute query. Error was {0}".format(str(exc))
+        print("Unable to execute query. Error was {0}".format(str(exc)))
         return
 
     # Retrieve the results of the query
@@ -148,7 +148,7 @@ def getData():
     if arguments.topojson is True:
         topojson()
     else:
-        print "Done!"
+        print("Done!")
 
 def topojson():
     command = "topojson -o " + arguments.file + ".topojson -p -- " + arguments.file + ".geojson" 
